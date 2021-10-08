@@ -14,14 +14,14 @@ public class Principal {
 			System.out.println();
 			System.out.print("Número da Conta: ");
 			int numerodaconta = sc.nextInt();
-			System.out.print("Titular da Conta: ");
+			System.out.print("Titular da Conta(Máximo de 10 caracteres): ");
 			sc.nextLine();
 			String titular = sc.nextLine();
-			Conta conta = new Conta(numerodaconta, titular);
+			Conta conta = new Conta(numerodaconta, titular);//VERIFICAÇAÕ DO TAMANHO DO NOME ACIMA DE 10 CARACTERES
 			
 			System.out.print("Deposito inicial acima de R$500,00: ");
 			double deposito = sc.nextDouble();
-			Conta conta1 = new Conta(numerodaconta, titular, deposito, 300.00);
+			Conta conta1 = new Conta(numerodaconta, titular, deposito, 300.00);//VERIFICAÇÃO DO DEPOSITO MAIOR QUE R$500,00 
 
 			System.out.print("Deseja fazer alguma operação?(s/n) ");
 			char y = sc.next().charAt(0);
@@ -33,15 +33,15 @@ public class Principal {
 					case '1':
 						System.out.print("Valor do depósito:");
 						double valor = sc.nextDouble();
-						conta.deposito(valor);
+						conta1.deposito(valor);
 						break;
 					case '2':
 						System.out.print("Valor do saque:");
 						valor = sc.nextDouble();
-						conta.saque(valor);
+						conta1.saque(valor);//VERIFICAÇÃO DOS LIMITES DE SALDO SUFICIENTE E LIMITE DE SAQUE
 						break;
 					case '3':
-						System.out.print(conta.toString());
+						System.out.println(conta1.toString());
 						break;
 					default:
 						System.out.print("Dígito inválido");

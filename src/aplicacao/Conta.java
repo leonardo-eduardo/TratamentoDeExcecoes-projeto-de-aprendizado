@@ -12,21 +12,24 @@ public class Conta {
 
 	public Conta(int numerodaconta, String titular) throws ContaException {
 		this.numerodaconta = numerodaconta;
-		if (titular.length()>10) {
-			throw new ContaException("Nome com mais de 10 caracteres\nRepita a operação");
-		}
-		else {
-		this.titular = titular;
+		if (titular.length() > 10) {
+			throw new ContaException("Nome com mais de 10 caracteres\nRepita a operação");// TRATAMENTO DO ERRO COM A
+																							// MENSAGEM
+		} else {
+			this.titular = titular;
 		}
 	}
-	
+
 	public Conta(int numerodaconta, String titular, double saldo, double limitedesaque) throws ContaException {
 		this.numerodaconta = numerodaconta;
 		this.titular = titular;
 		if (saldo > 500.00) {
 			this.saldo = saldo;
 		} else {
-			throw new ContaException("Valor de depósito inicial inferior a R$500,00\nRepita a operação");
+			throw new ContaException("Valor de depósito inicial inferior a R$500,00\nRepita a operação");// TRATAMENTO
+																											// DO ERRO
+																											// COM A
+																											// MENSAGEM
 		}
 
 		this.limitedesaque = limitedesaque;
@@ -64,9 +67,10 @@ public class Conta {
 		if (valor <= saldo && valor <= limitedesaque) {
 			saldo -= valor;
 		} else if (valor > limitedesaque) {
-			throw new ContaException("Limite de saque ultrapassado\nRepita a operação");
+			throw new ContaException("Limite de saque ultrapassado\nRepita a operação");// TRATAMENTO DO ERRO COM A
+																						// MENSAGEM
 		} else {
-			throw new ContaException("Saldo insuficiente\nRepita a operação");
+			throw new ContaException("Saldo insuficiente\nRepita a operação");// TRATAMENTO DO ERRO COM A MENSAGEM
 		}
 	}
 
